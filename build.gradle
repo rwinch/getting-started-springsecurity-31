@@ -145,3 +145,7 @@ task generatePom {
 
 build.dependsOn generatePom
 [jettyRun,jettyRunWar]*.contextPath = 'messages'
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 30, 'days'
+}
