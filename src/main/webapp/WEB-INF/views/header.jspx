@@ -1,0 +1,31 @@
+<jsp:root
+   xmlns:jsp="http://java.sun.com/JSP/Page"
+   xmlns:sec="http://www.springframework.org/security/tags"
+   xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
+   version="2.0">
+     <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <c:url var="homeUrl" value="/"/>
+            <li><a href="${homeUrl}" class="brand">Messages</a></li>
+          </ul>
+          <!--<sec:authorize access="authenticated">
+            <ul class="nav pull-right">
+              <li>
+                <span class="navbar-text">
+                  Welcome,
+                  <sec:authentication property="name"/>
+                </span>
+              </li>
+              <c:url var="logoutUrl"
+                  value="/j_spring_security_logout"/>
+              <li>
+                <a href="${logoutUrl}">Log out</a>
+              </li>
+            </ul>
+          </sec:authorize>-->
+        </div>
+      </div>
+    </div>
+</jsp:root>
