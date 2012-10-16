@@ -26,7 +26,6 @@ public class MessageController {
         this.messageRepository = messageRepository;
     }
 
-    ApplicationContext applicationContext = null;
     @RequestMapping
     public ModelAndView list() {
         Iterable<Message> messages = messageRepository.findAll();

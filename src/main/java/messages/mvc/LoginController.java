@@ -27,8 +27,6 @@ public class LoginController {
     private static final String LOGIN_VIEW = "login";
 
     @Autowired
-    private AuthenticationSuccessHandler successHandler;
-    @Autowired
     @Qualifier("authenticationManager")
     private AuthenticationManager authenticationManager;
 
@@ -69,8 +67,7 @@ public class LoginController {
         Authentication authentication =
                    new UsernamePasswordAuthenticationToken(j_username, j_password, AuthorityUtils.createAuthorityList("ROLE_USER"));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        successHandler.onAuthenticationSuccess(request, response, authentication);
-        return null;
+        return "redirect:/";
     }
 
     /**
@@ -96,11 +93,10 @@ public class LoginController {
         try {
             Authentication authentication = authenticationManager.authenticate(token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            successHandler.onAuthenticationSuccess(request, response, authentication);
         } catch(AuthenticationException error) {
             result.reject("login.fail",error.getMessage());
             return LOGIN_VIEW;
         }
-        return null;
+        return "redirect:/";
     }
 }

@@ -2,33 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:security="http://www.springframework.org/schema/security"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-<!--
-  <security:global-method-security
-      pre-post-annotations="enabled"/> -->
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-  <!-- <security:http security="none" pattern="/resources/**"/> -->
-  <security:http use-expressions="true">
-    <security:intercept-url pattern="/login"
-        access="permitAll"/>
-    <security:intercept-url
-        pattern="/**"
-        access="hasRole('ROLE_USER')"/>
-    <security:form-login/>
-    <!-- <security:form-login login-page="/login"
-        authentication-failure-url="/login?error"/> -->
-    <security:logout logout-success-url="/login?logout"/>
-  </security:http>
-
-  <security:authentication-manager alias="authenticationManager">
-    <security:authentication-provider>
-      <security:user-service>
-        <security:user name="user" password="password" authorities="ROLE_USER"/>
-      </security:user-service>
-    </security:authentication-provider>
-  </security:authentication-manager>
-
-  <bean id="successHandler"
-    class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler"/>
+  <context:component-scan base-package="org.springframework.security.samples.config"/>
 </beans>
