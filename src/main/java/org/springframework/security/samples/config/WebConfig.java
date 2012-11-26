@@ -17,28 +17,28 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackageClasses = { LoginController.class })
 public class WebConfig extends WebMvcConfigurerAdapter {
-	
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources");
-	}
-	
-	@Bean
-	public DomainClassConverter<DefaultConversionService> domainClassConverter() {
-		return new DomainClassConverter<DefaultConversionService>(conversionService());
-	}
 
-	@Bean
-	public DefaultConversionService conversionService() {
-		return new DefaultConversionService();
-	}
-	
-	@Bean
-	public ViewResolver internalViewResolver() {
-		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setPrefix("/WEB-INF/views/");
-		viewResolver.setSuffix(".jspx");
-		return viewResolver;
-	}
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    @Bean
+    public DomainClassConverter<DefaultConversionService> domainClassConverter() {
+        return new DomainClassConverter<DefaultConversionService>(conversionService());
+    }
+
+    @Bean
+    public DefaultConversionService conversionService() {
+        return new DefaultConversionService();
+    }
+
+    @Bean
+    public ViewResolver internalViewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/WEB-INF/views/");
+        viewResolver.setSuffix(".jspx");
+        return viewResolver;
+    }
 
 }
