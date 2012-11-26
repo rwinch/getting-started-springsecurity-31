@@ -4,27 +4,15 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>Sample Application</display-name>
 
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>
-       org.springframework.security.samples.config
-    </param-value>
-  </context-param>
-  <context-param>
-  	<param-name>contextClass</param-name>
-  	<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
-  </context-param>
-  <listener>
-    <listener-class>
-      org.springframework.web.context.ContextLoaderListener
-    </listener-class>
-  </listener>
-
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>
       org.springframework.web.filter.DelegatingFilterProxy
     </filter-class>
+	<init-param>
+		<param-name>contextAttribute</param-name>
+		<param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.message</param-value>
+	</init-param>
   </filter>
   <filter-mapping>
     <filter-name>springSecurityFilterChain</filter-name>
@@ -34,6 +22,16 @@
   <servlet>
     <servlet-name>message</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+  		<param-name>contextClass</param-name>
+  		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>
+       		org.springframework.security.samples.config
+    	</param-value>
+    </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
 
