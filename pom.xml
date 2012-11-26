@@ -51,6 +51,12 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
       <version>1.0.0.GA</version>
@@ -67,6 +73,11 @@
       <artifactId>aspectjrt</artifactId>
       <version>1.6.10</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>2.2.2</version>
     </dependency>
     <dependency>
       <groupId>org.easytesting</groupId>
@@ -103,6 +114,12 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.6.1</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.1</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.data</groupId>
@@ -142,15 +159,41 @@
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>${spring.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
       <version>${spring.version}</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
   <properties>
     <spring.version>3.1.2.RELEASE</spring.version>
-    <m2eclipse.wtp.contextroot>calendar</m2eclipse.wtp.contextroot>
+    <m2eclipse.wtp.contextroot>/calendar</m2eclipse.wtp.contextroot>
     <spring.security.version>3.1.3.RELEASE</spring.security.version>
     <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
   </properties>
+  <repositories>
+  	<repository>
+        <id>spring-milestone</id>
+		  <name>Spring Repository - Milestones</name>
+		  <url>http://maven.springframework.org/milestone/</url>
+		  <snapshots>
+			<enabled>false</enabled>
+		  </snapshots>
+		  <releases>
+			<enabled>true</enabled>
+		  </releases>
+     </repository>
+  </repositories>
+  <packaging>war</packaging>
 </project>
