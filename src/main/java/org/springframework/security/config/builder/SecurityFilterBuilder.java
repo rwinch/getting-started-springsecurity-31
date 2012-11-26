@@ -47,7 +47,8 @@ public class SecurityFilterBuilder {
         return this;
     }
 
-    public <T extends SecurityFilterConfigurator> T getConfigurator(Class<T> clazz) {
+    @SuppressWarnings("unchecked")
+	public <T extends SecurityFilterConfigurator> T getConfigurator(Class<T> clazz) {
         for(SecurityFilterConfigurator configurer : configurators) {
             if(configurer.getClass().isAssignableFrom(clazz)) {
                 return (T) configurer;
@@ -56,7 +57,8 @@ public class SecurityFilterBuilder {
         return null;
     }
 
-    public <T extends Filter> T getFilter(Class<T> clazz) {
+    @SuppressWarnings("unchecked")
+	public <T extends Filter> T getFilter(Class<T> clazz) {
         for(Filter f : filters) {
             if(f.getClass().isAssignableFrom(clazz)) {
                 return (T) f;

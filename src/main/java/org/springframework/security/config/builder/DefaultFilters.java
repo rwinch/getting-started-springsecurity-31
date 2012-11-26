@@ -8,7 +8,6 @@ import org.springframework.security.access.vote.ConsensusBased;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.web.access.ExceptionTranslationFilter;
 import org.springframework.security.web.access.expression.WebExpressionVoter;
-import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
@@ -76,7 +75,8 @@ public class DefaultFilters implements SecurityFilterConfigurator {
     }
 
     private FilterSecurityInterceptor securityInterceptor(AuthenticationManager authenticationManager) throws Exception {
-        List<AccessDecisionVoter> decisionVoters = new ArrayList<AccessDecisionVoter>();
+        @SuppressWarnings("rawtypes")
+		List<AccessDecisionVoter> decisionVoters = new ArrayList<AccessDecisionVoter>();
         decisionVoters.add(new WebExpressionVoter());
         ConsensusBased accessDecisionManager = new ConsensusBased(decisionVoters);
         FilterSecurityInterceptor securityInterceptor = new FilterSecurityInterceptor();
