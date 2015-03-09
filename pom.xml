@@ -48,7 +48,7 @@
     <repository>
       <id>spring-milestone</id>
       <name>Spring Repository - Milestone</name>
-      <url>http://maven.springsource.org/milestone/</url>
+      <url>https://repo.spring.io/libs-milestone/</url>
     </repository>
   </repositories>
   <dependencies>
