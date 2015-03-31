@@ -1,7 +1,7 @@
 About
 =================
 
-Source Code and materials for [Getting Started with Spring Security 3.1 from SpringOne 2012](http://www.springone2gx.com/conference/washington/2012/10/session?id=27680). To run the samples import the project into Spring Tool Suite using the Gradle Eclipse plugin.
+Source Code and materials for [Getting Started with Spring Security 3.1 from SpringOne 2012](https://www.youtube.com/watch?v=k32KqrckLEE). To run the samples import the project into Spring Tool Suite using the Gradle Eclipse plugin.
 
 
 Running the sample project
